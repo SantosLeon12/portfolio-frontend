@@ -7,40 +7,90 @@ import {
   Geist_Mono,
 } from "next/font/google";
 
+import {
+  siteConfig,
+} from "@/config/site";
+
 import "./globals.css";
 
+
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable:
+    "--font-geist-sans",
+
+  subsets: [
+    "latin",
+  ],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
-export const metadata: Metadata = {
-  title: {
-    default:
-      "Jorge Luis De los Santos León | Software Engineer",
-    template:
-      "%s | Jorge Luis De los Santos León",
-  },
+const geistMono =
+  Geist_Mono({
+    variable:
+      "--font-geist-mono",
 
-  description:
-    "Software Engineer and Full Stack Developer focused on ERP systems, web and mobile applications, integrations, and practical business solutions.",
-};
+    subsets: [
+      "latin",
+    ],
+  });
+
+
+export const metadata: Metadata =
+  {
+    metadataBase:
+      new URL(
+        siteConfig.url,
+      ),
+
+    title: {
+      default:
+        siteConfig.title,
+
+      template:
+        `%s | ${siteConfig.name}`,
+    },
+
+    description:
+      siteConfig.description,
+
+    applicationName:
+      siteConfig.name,
+
+    authors: [
+      {
+        name:
+          siteConfig.name,
+
+        url:
+          siteConfig.url,
+      },
+    ],
+
+    creator:
+      siteConfig.name,
+
+    publisher:
+      siteConfig.name,
+
+    category:
+      "technology",
+  };
+
 
 type RootLayoutProps = {
-  children: React.ReactNode;
+  children:
+    React.ReactNode;
 };
+
 
 export default function RootLayout({
   children,
 }: RootLayoutProps) {
   return (
     <html
-      lang="en"
+      lang={
+        siteConfig.language
+      }
       className={[
         geistSans.variable,
         geistMono.variable,
