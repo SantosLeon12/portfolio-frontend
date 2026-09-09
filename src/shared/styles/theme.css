@@ -1,0 +1,133 @@
+:root {
+  /* =========================================================
+     ADMIN / DEFAULT THEME
+     ========================================================= */
+
+  --background: #ffffff;
+  --surface: #f7f7f8;
+  --surface-elevated: #ffffff;
+
+  --text-primary: #171717;
+  --text-secondary: #616161;
+  --text-muted: #8a8a8a;
+
+  --border: #e5e5e5;
+
+  --accent: #3b5ccc;
+  --accent-hover: #304db0;
+
+  --danger: #c63737;
+  --success: #287a4b;
+
+  --shadow-sm:
+    0 1px 2px
+    rgb(0 0 0 / 5%);
+
+  --shadow-md:
+    0 8px 24px
+    rgb(0 0 0 / 8%);
+}
+
+
+/* =========================================================
+   PUBLIC PORTFOLIO — MIDNIGHT PRISM
+   ========================================================= */
+
+.public-theme,
+.public-portal-theme {
+  --background: #0b1020;
+
+  --surface: #11182b;
+
+  --surface-secondary: #182238;
+
+  --surface-elevated: #161f34;
+
+  --surface-soft:
+    rgb(24 34 56 / 72%);
+
+
+  /* Text */
+
+  --text-primary: #f4f7fb;
+
+  --text-secondary: #a8b3c7;
+
+  --text-muted: #718096;
+
+
+  /* Brand */
+
+  --accent: #6c63ff;
+
+  --accent-hover: #817aff;
+
+  --accent-secondary: #22d3c5;
+
+  --accent-secondary-hover: #46e1d5;
+
+  --accent-warm: #ff7a68;
+
+
+  /* Borders */
+
+  --border: #27344d;
+
+  --border-soft:
+    rgb(168 179 199 / 12%);
+
+  --border-hover:
+    rgb(108 99 255 / 55%);
+
+
+  /* Semantic */
+
+  --danger: #ff667d;
+
+  --success: #35d0a0;
+
+
+  /* Gradient */
+
+  --gradient-brand:
+    linear-gradient(
+      120deg,
+      #6c63ff 0%,
+      #22d3c5 100%
+    );
+
+  --gradient-brand-soft:
+    linear-gradient(
+      120deg,
+      rgb(108 99 255 / 20%) 0%,
+      rgb(34 211 197 / 12%) 100%
+    );
+
+
+  /* Glow */
+
+  --glow-indigo:
+    0 0 80px
+    rgb(108 99 255 / 20%);
+
+  --glow-cyan:
+    0 0 80px
+    rgb(34 211 197 / 14%);
+
+
+  /* Shadows */
+
+  --shadow-sm:
+    0 4px 16px
+    rgb(0 0 0 / 18%);
+
+  --shadow-md:
+    0 18px 45px
+    rgb(0 0 0 / 24%);
+
+  --shadow-lg:
+    0 28px 80px
+    rgb(0 0 0 / 32%);
+
+  color-scheme: dark;
+}

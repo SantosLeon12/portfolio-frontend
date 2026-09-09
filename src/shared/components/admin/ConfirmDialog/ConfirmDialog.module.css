@@ -1,0 +1,37 @@
+.content {
+  display: flex;
+  gap: var(--space-4);
+
+  color: var(--text-secondary);
+}
+
+.warning {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius:
+    var(--radius-md);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--danger) 10%,
+      transparent
+    );
+
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: var(--space-3);
+
+  margin-top: var(--space-6);
+}

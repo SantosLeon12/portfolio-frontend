@@ -1,0 +1,504 @@
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid
+    var(--border-soft);
+}
+
+.container {
+  position: relative;
+
+  z-index:
+    var(--z-content);
+}
+
+.sectionHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-5);
+
+  margin-bottom:
+    var(--space-10);
+}
+
+.sectionLabel {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.sectionNumber {
+  color:
+    var(--accent-secondary);
+}
+
+.sectionLine {
+  width: 34px;
+  height: 1px;
+
+  background:
+    var(--border);
+}
+
+.sectionTitle {
+  max-width: 780px;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      2.25rem,
+      8vw,
+      4.5rem
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1.04;
+
+  letter-spacing:
+    -0.05em;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.aboutGrid {
+  display: grid;
+
+  gap:
+    var(--space-8);
+}
+
+.aboutMain {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-4);
+
+  max-width: 760px;
+}
+
+.lead {
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      var(--text-lg),
+      3vw,
+      var(--text-xl)
+    );
+
+  font-weight:
+    var(--font-medium);
+
+  line-height: 1.5;
+}
+
+.aboutText {
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-sm);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+.mission {
+  position: relative;
+
+  padding-left:
+    var(--space-5);
+
+  border-left:
+    2px solid
+    var(--accent-secondary);
+}
+
+.missionLabel {
+  display: block;
+
+  margin-bottom:
+    var(--space-3);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.mission p {
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-lg);
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   STRENGTHS
+   ========================================================= */
+
+.strengthsSection {
+  margin-top:
+    var(--space-14);
+
+  padding-top:
+    var(--space-8);
+
+  border-top:
+    1px solid
+    var(--border-soft);
+}
+
+.subsectionHeader {
+  margin-bottom:
+    var(--space-6);
+}
+
+.subsectionHeader span {
+  color:
+    var(--accent-warm);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.subsectionHeader h3 {
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-2xl);
+
+  font-weight:
+    var(--font-semibold);
+}
+
+.strengths {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items:
+    flex-start;
+
+  gap:
+    var(--space-3);
+}
+
+.strength {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr);
+
+  align-items:
+    flex-start;
+
+  gap:
+    var(--space-4);
+
+  flex:
+    1 1 260px;
+
+  padding:
+    var(--space-4);
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    rgb(17 24 43 / 42%);
+
+  transition:
+    border-color
+      var(--duration-normal),
+    background
+      var(--duration-normal),
+    transform
+      var(--duration-normal)
+      var(--ease-emphasized);
+}
+
+.strength:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    var(--border-hover);
+
+  background:
+    rgb(24 34 56 / 55%);
+}
+
+.strengthIndex {
+  display: grid;
+
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-full);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.65rem;
+}
+
+.strength h4 {
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-base);
+
+  font-weight:
+    var(--font-semibold);
+}
+
+.strength p {
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   INTERESTS
+   ========================================================= */
+
+.interestsSection {
+  margin-top:
+    var(--space-12);
+
+  padding-top:
+    var(--space-7, 1.75rem);
+
+  border-top:
+    1px solid
+    var(--border-soft);
+}
+
+.interestsHeader {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap:
+    var(--space-4);
+
+  margin-bottom:
+    var(--space-5);
+}
+
+.interestsHeader span {
+  color:
+    var(--accent-warm);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.interestsHeader p {
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+}
+
+.interestsScroller {
+  display: flex;
+
+  flex-wrap: nowrap;
+
+  gap:
+    var(--space-3);
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  padding-bottom:
+    var(--space-3);
+
+  scroll-snap-type:
+    x proximity;
+
+  overscroll-behavior-x:
+    contain;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    var(--border)
+    transparent;
+}
+
+.interest {
+  display: inline-flex;
+
+  align-items: center;
+
+  flex: 0 0 auto;
+
+  gap:
+    var(--space-2);
+
+  padding:
+    0.7rem
+    1rem;
+
+  scroll-snap-align:
+    start;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(17 24 43 / 45%);
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-sm);
+}
+
+.interestDot {
+  width: 5px;
+  height: 5px;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+}
+
+@media (
+  min-width: 900px
+) {
+  .sectionHeader {
+    margin-bottom:
+      var(--space-12);
+  }
+
+  .aboutGrid {
+    grid-template-columns:
+      minmax(0, 1.3fr)
+      minmax(280px, 0.7fr);
+
+    align-items: start;
+
+    gap:
+      var(--space-16);
+  }
+
+  .strengthsSection {
+    margin-top:
+      var(--space-16);
+  }
+}

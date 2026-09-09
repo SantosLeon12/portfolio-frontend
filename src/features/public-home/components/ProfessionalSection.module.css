@@ -1,0 +1,1145 @@
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid
+    var(--border-soft);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgb(17 24 43 / 20%),
+      transparent 35%
+    );
+}
+
+.section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: min(
+    80%,
+    850px
+  );
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 122 104 / 40%),
+      rgb(108 99 255 / 45%),
+      transparent
+    );
+
+  transform:
+    translateX(-50%);
+}
+
+.container {
+  position: relative;
+
+  z-index:
+    var(--z-content);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.sectionHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-6);
+
+  margin-bottom:
+    var(--space-16);
+}
+
+.sectionLabel {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.sectionNumber {
+  color:
+    var(--accent-secondary);
+}
+
+.sectionLine {
+  width: 34px;
+  height: 1px;
+
+  background:
+    var(--border);
+}
+
+.headingGrid {
+  display: grid;
+
+  gap:
+    var(--space-6);
+}
+
+.sectionTitle {
+  max-width: 850px;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      2.25rem,
+      8vw,
+      4.6rem
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1.04;
+
+  letter-spacing:
+    -0.05em;
+}
+
+.sectionDescription {
+  max-width: 520px;
+
+  color:
+    var(--text-secondary);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.contentGrid {
+  display: grid;
+
+  gap:
+    var(--space-16);
+}
+
+.blockHeader {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  margin-bottom:
+    var(--space-8);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   EXPERIENCE TIMELINE
+   ========================================================= */
+
+.timeline {
+  position: relative;
+
+  padding-left:
+    var(
+      --space-7,
+      1.75rem
+    );
+}
+
+
+/* =========================================================
+   TIMELINE TRACK
+   ========================================================= */
+
+/*
+ * The previous timeline::before has been replaced
+ * with a real DOM track.
+ *
+ * This lets us independently animate the progress
+ * without rebuilding or moving any experience.
+ */
+
+.timelineTrack {
+  position: absolute;
+
+  z-index: 0;
+
+  top: 7px;
+  bottom: 0;
+  left: 3px;
+
+  width: 2px;
+
+  overflow: hidden;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgb(39 52 77 / 85%),
+      rgb(39 52 77 / 48%),
+      rgb(39 52 77 / 18%),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   REACTIVE PROGRESS
+   ========================================================= */
+
+.timelineProgress {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius:
+    inherit;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--accent-warm)
+        0%,
+      var(--accent)
+        48%,
+      var(--accent-secondary)
+        100%
+    );
+
+  box-shadow:
+    0 0 12px
+    rgb(34 211 197 / 28%);
+
+  transform:
+    scaleY(0);
+
+  transform-origin:
+    top center;
+
+  transition:
+    transform
+      120ms
+      linear;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+.experience {
+  position: relative;
+
+  z-index: 1;
+
+  padding-bottom:
+    var(--space-16);
+}
+
+.experience:last-child {
+  padding-bottom: 0;
+}
+
+
+/* =========================================================
+   EXPERIENCE BODY
+   ========================================================= */
+
+.experienceBody {
+  position: relative;
+
+  z-index: 2;
+
+  transition:
+    transform
+      420ms
+      var(--ease-emphasized);
+}
+
+
+/*
+ * Very subtle atmospheric response.
+ *
+ * It does not create a card.
+ * It simply gives the currently active experience
+ * a small amount of depth.
+ */
+
+.experienceBody::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -1;
+
+  top: -1.35rem;
+  right: -1rem;
+  bottom: -1.35rem;
+  left: -1.25rem;
+
+  border-radius:
+    var(--radius-xl);
+
+  background:
+    radial-gradient(
+      ellipse
+        at
+        0%
+        18%,
+      rgb(34 211 197 / 7%),
+      rgb(108 99 255 / 3%)
+        42%,
+      transparent
+        72%
+    );
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    scale(0.97);
+
+  transform-origin:
+    left center;
+
+  transition:
+    opacity
+      420ms
+      var(--ease-standard),
+    transform
+      520ms
+      var(--ease-emphasized);
+}
+
+
+/* =========================================================
+   ACTIVE EXPERIENCE BODY
+   ========================================================= */
+
+.experienceActive
+.experienceBody {
+  transform:
+    translateX(4px);
+}
+
+.experienceActive
+.experienceBody::before {
+  opacity: 1;
+
+  transform:
+    scale(1);
+}
+
+
+/* =========================================================
+   TIMELINE MARKER
+   ========================================================= */
+
+.timelineMarker {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 4px;
+
+  left:
+    calc(
+      -1 *
+      var(
+        --space-7,
+        1.75rem
+      )
+    );
+
+  width: 8px;
+  height: 8px;
+
+  border:
+    1px solid
+    rgb(168 179 199 / 24%);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    #182238;
+
+  box-shadow:
+    0 0 0
+    rgb(0 0 0 / 0%);
+
+  opacity: 0.68;
+
+  transform:
+    scale(1);
+
+  transition:
+    opacity
+      360ms
+      var(--ease-standard),
+    transform
+      420ms
+      var(--ease-emphasized),
+    border-color
+      360ms
+      var(--ease-standard),
+    background
+      360ms
+      var(--ease-standard),
+    box-shadow
+      420ms
+      var(--ease-standard);
+}
+
+
+/* =========================================================
+   MARKER RING
+   ========================================================= */
+
+.timelineMarker::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  border:
+    1px solid
+    rgb(34 211 197 / 30%);
+
+  border-radius:
+    var(--radius-full);
+
+  opacity: 0;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(0.55);
+
+  transition:
+    opacity
+      360ms
+      var(--ease-standard),
+    transform
+      460ms
+      var(--ease-emphasized);
+}
+
+
+/* =========================================================
+   COMPLETED MARKER
+   ========================================================= */
+
+.experienceCompleted
+.timelineMarker {
+  border-color:
+    rgb(108 99 255 / 38%);
+
+  background:
+    var(--accent);
+
+  opacity: 0.82;
+
+  box-shadow:
+    0 0 10px
+    rgb(108 99 255 / 22%);
+}
+
+
+/* =========================================================
+   ACTIVE MARKER
+   ========================================================= */
+
+.experienceActive
+.timelineMarker {
+  border-color:
+    rgb(34 211 197 / 70%);
+
+  background:
+    var(--accent-secondary);
+
+  opacity: 1;
+
+  transform:
+    scale(1.35);
+
+  box-shadow:
+    0 0 16px
+    rgb(34 211 197 / 52%);
+}
+
+.experienceActive
+.timelineMarker::after {
+  opacity: 1;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(1);
+}
+
+
+/* =========================================================
+   PERIOD
+   ========================================================= */
+
+.period {
+  color:
+    var(--accent-warm);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-wide);
+
+  transition:
+    color
+      360ms
+      var(--ease-standard);
+}
+
+.experienceActive
+.period {
+  color:
+    #ff9a8c;
+}
+
+
+/* =========================================================
+   ROLE
+   ========================================================= */
+
+.role {
+  margin-top:
+    var(--space-3);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      var(--text-xl),
+      5vw,
+      var(--text-3xl)
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  letter-spacing:
+    -0.035em;
+
+  transition:
+    transform
+      420ms
+      var(--ease-emphasized);
+}
+
+.experienceActive
+.role {
+  transform:
+    translateX(2px);
+}
+
+
+/* =========================================================
+   ORGANIZATION
+   ========================================================= */
+
+.organization {
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-base);
+}
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.location {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+
+  transition:
+    color
+      360ms
+      var(--ease-standard);
+}
+
+.experienceActive
+.location {
+  color:
+    var(--text-secondary);
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.summary {
+  max-width: 720px;
+
+  margin-top:
+    var(--space-6);
+
+  color:
+    var(--text-secondary);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
+
+.highlights {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-3);
+
+  margin-top:
+    var(--space-6);
+}
+
+.highlights li {
+  display: flex;
+
+  align-items:
+    flex-start;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-sm);
+
+  line-height:
+    var(--leading-relaxed);
+
+  transition:
+    color
+      360ms
+      var(--ease-standard),
+    transform
+      420ms
+      var(--ease-emphasized);
+}
+
+.experienceActive
+.highlights li {
+  color:
+    var(--text-secondary);
+}
+
+.experienceActive
+.highlights li:nth-child(1) {
+  transform:
+    translateX(2px);
+}
+
+.experienceActive
+.highlights li:nth-child(2) {
+  transform:
+    translateX(3px);
+}
+
+.experienceActive
+.highlights li:nth-child(n + 3) {
+  transform:
+    translateX(4px);
+}
+
+.highlightDot {
+  width: 5px;
+  height: 5px;
+
+  flex:
+    0 0 auto;
+
+  margin-top:
+    0.55rem;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  transition:
+    box-shadow
+      360ms
+      var(--ease-standard),
+    transform
+      360ms
+      var(--ease-emphasized);
+}
+
+.experienceActive
+.highlightDot {
+  transform:
+    scale(1.12);
+
+  box-shadow:
+    0 0 9px
+    rgb(34 211 197 / 34%);
+}
+
+
+/* =========================================================
+   EXPERIENCE TECHNOLOGIES
+   ========================================================= */
+
+.experienceTechnologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-6);
+}
+
+.experienceTechnologies span {
+  padding:
+    0.5rem
+    0.7rem;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    transparent;
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    0.68rem;
+
+  transition:
+    border-color
+      360ms
+      var(--ease-standard),
+    background
+      360ms
+      var(--ease-standard),
+    color
+      360ms
+      var(--ease-standard);
+}
+
+.experienceActive
+.experienceTechnologies
+span {
+  border-color:
+    rgb(34 211 197 / 18%);
+
+  background:
+    rgb(34 211 197 / 3%);
+
+  color:
+    var(--text-secondary);
+}
+
+
+/* =========================================================
+   SIDE COLUMN
+   ========================================================= */
+
+.sideColumn {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-12);
+}
+
+.sideBlock {
+  padding:
+    var(--space-6);
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-xl);
+
+  background:
+    rgb(17 24 43 / 42%);
+}
+
+.sideBlock
+.blockHeader {
+  margin-bottom:
+    var(--space-6);
+}
+
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+
+.educationList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-6);
+}
+
+.educationCard:not(
+    :last-child
+  ) {
+  padding-bottom:
+    var(--space-6);
+
+  border-bottom:
+    1px solid
+    var(--border-soft);
+}
+
+.educationPeriod {
+  color:
+    var(--accent-warm);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+}
+
+.educationCard h3 {
+  margin-top:
+    var(--space-3);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-lg);
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1.35;
+}
+
+.educationCard p {
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-sm);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+.educationLocation {
+  display: block;
+
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+}
+
+
+/* =========================================================
+   LANGUAGES
+   ========================================================= */
+
+.languageList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-4);
+}
+
+.languageItem {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap:
+    var(--space-5);
+
+  padding:
+    var(--space-4);
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    rgb(24 34 56 / 40%);
+}
+
+.languageItem div {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+}
+
+.languageItem strong {
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-sm);
+}
+
+.languageItem div span {
+  padding:
+    0.25rem
+    0.45rem;
+
+  border-radius:
+    var(--radius-sm);
+
+  background:
+    rgb(108 99 255 / 10%);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.65rem;
+}
+
+.languageItem p {
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (
+  min-width: 900px
+) {
+  .sectionHeader {
+    margin-bottom:
+      var(--space-20);
+  }
+
+  .headingGrid {
+    grid-template-columns:
+      minmax(0, 1.35fr)
+      minmax(280px, 0.65fr);
+
+    align-items: end;
+
+    gap:
+      var(--space-16);
+  }
+
+  .sectionDescription {
+    justify-self: end;
+  }
+
+  .contentGrid {
+    grid-template-columns:
+      minmax(0, 1.3fr)
+      minmax(320px, 0.7fr);
+
+    gap:
+      var(--space-16);
+  }
+
+  .sideColumn {
+    position: sticky;
+
+    top:
+      calc(
+        var(--header-height) +
+        var(--space-8)
+      );
+
+    align-self: start;
+  }
+
+
+  /* =======================================================
+     DESKTOP HOVER
+     ======================================================= */
+
+  /*
+   * Hover does not move the timeline marker or line.
+   * Only the content gets a small editorial response.
+   */
+
+  .experience {
+    cursor: default;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .timelineProgress {
+    transition-duration:
+      1ms;
+  }
+
+  .experienceBody,
+  .experienceBody::before,
+  .timelineMarker,
+  .timelineMarker::after,
+  .period,
+  .role,
+  .location,
+  .highlights li,
+  .highlightDot,
+  .experienceTechnologies span {
+    transition-duration:
+      1ms;
+  }
+}

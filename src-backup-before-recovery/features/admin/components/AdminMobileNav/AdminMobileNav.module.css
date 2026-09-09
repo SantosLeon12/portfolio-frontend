@@ -1,0 +1,152 @@
+.menuButton,
+.closeButton {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+}
+
+.layer {
+  position: fixed;
+  inset: 0;
+
+  z-index: var(--z-modal);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  background: rgb(0 0 0 / 35%);
+}
+
+.drawer {
+  position: absolute;
+  inset:
+    0 auto 0 0;
+
+  width: min(86vw, 320px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--space-5);
+
+  background:
+    var(--surface-elevated);
+
+  box-shadow:
+    16px 0 40px
+      rgb(0 0 0 / 12%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap: var(--space-4);
+
+  padding-bottom:
+    var(--space-5);
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brandMark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius:
+    var(--radius-md);
+
+  background: var(--accent);
+  color: #fff;
+
+  font-weight: 700;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand span {
+  margin-top: 1px;
+
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.nav {
+  display: grid;
+  gap: var(--space-1);
+
+  overflow-y: auto;
+
+  margin-top: var(--space-5);
+}
+
+.link {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  padding:
+    var(--space-2)
+    var(--space-3);
+
+  border-radius:
+    var(--radius-md);
+
+  color:
+    var(--text-secondary);
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.active {
+  background:
+    color-mix(
+      in srgb,
+      var(--accent) 9%,
+      transparent
+    );
+
+  color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+  .menuButton,
+  .layer {
+    display: none;
+  }
+}

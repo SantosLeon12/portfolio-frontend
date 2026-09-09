@@ -1,0 +1,889 @@
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid
+    var(--border-soft);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgb(17 24 43 / 18%),
+      transparent
+    );
+}
+
+.container {
+  position: relative;
+
+  z-index:
+    var(--z-content);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.sectionHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-6);
+
+  margin-bottom:
+    var(--space-12);
+}
+
+.sectionLabel {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.sectionNumber {
+  color:
+    var(--accent-secondary);
+}
+
+.sectionLine {
+  width: 34px;
+  height: 1px;
+
+  background:
+    var(--border);
+}
+
+.headingGrid {
+  display: grid;
+
+  gap:
+    var(--space-5);
+}
+
+.sectionTitle {
+  max-width: 800px;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      2.25rem,
+      8vw,
+      4.4rem
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1.04;
+
+  letter-spacing:
+    -0.05em;
+}
+
+.sectionDescription {
+  max-width: 500px;
+
+  color:
+    var(--text-secondary);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   CORE STACK
+   ========================================================= */
+
+.subsectionHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items:
+    flex-start;
+
+  gap:
+    var(--space-4);
+
+  margin-bottom:
+    var(--space-5);
+}
+
+.subsectionHeader span,
+.extendedHeader > span {
+  color:
+    var(--accent-warm);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.subsectionHeader h3 {
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-xl);
+
+  font-weight:
+    var(--font-semibold);
+}
+
+
+/* =========================================================
+   PROJECT CONNECTION
+   ========================================================= */
+
+/*
+ * This is shown only after the user has meaningfully focused
+ * a project.
+ *
+ * Going directly to Stack does not render it.
+ */
+
+.projectConnection {
+  display: inline-flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap:
+    0.45rem;
+
+  min-height: 32px;
+
+  padding:
+    0.42rem
+    0.7rem;
+
+  border:
+    1px solid
+    rgb(34 211 197 / 16%);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(34 211 197 / 4%);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.64rem;
+
+  opacity: 0;
+
+  transform:
+    translateY(4px);
+
+  animation:
+    connectionEnter
+    420ms
+    var(--ease-emphasized)
+    forwards;
+}
+
+.connectionPulse {
+  width: 6px;
+  height: 6px;
+
+  flex:
+    0 0 auto;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 12px
+    rgb(34 211 197 / 40%);
+}
+
+.projectConnection
+.connectionText {
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.64rem;
+
+  letter-spacing:
+    normal;
+
+  text-transform:
+    none;
+}
+
+.projectConnection strong {
+  color:
+    var(--text-primary);
+
+  font-size:
+    0.66rem;
+
+  font-weight:
+    var(--font-semibold);
+}
+
+@keyframes
+connectionEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =========================================================
+   CORE GRID
+   ========================================================= */
+
+.coreGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    var(--space-3);
+}
+
+.coreTechnology {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  min-width: 0;
+
+  padding:
+    var(--space-4);
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    rgb(17 24 43 / 45%);
+
+  box-shadow:
+    0 0 0
+    rgb(0 0 0 / 0%);
+
+  transition:
+    transform
+      360ms
+      var(--ease-emphasized),
+    border-color
+      360ms
+      var(--ease-standard),
+    background
+      360ms
+      var(--ease-standard),
+    box-shadow
+      420ms
+      var(--ease-standard);
+}
+
+.coreTechnology:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    var(--border-hover);
+
+  background:
+    rgb(24 34 56 / 60%);
+}
+
+.coreDot {
+  width: 7px;
+  height: 7px;
+
+  flex:
+    0 0 auto;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 12px
+    rgb(34 211 197 / 32%);
+
+  transition:
+    transform
+      360ms
+      var(--ease-emphasized),
+    box-shadow
+      360ms
+      var(--ease-standard);
+}
+
+.coreTechnology h4 {
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-base);
+
+  font-weight:
+    var(--font-semibold);
+}
+
+.coreTechnology p {
+  margin-top:
+    var(--space-1);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    0.68rem;
+}
+
+
+/* =========================================================
+   RELATED CORE TECHNOLOGY
+   ========================================================= */
+
+.relatedCoreTechnology {
+  border-color:
+    rgb(34 211 197 / 30%);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(34 211 197 / 8%),
+      rgb(108 99 255 / 4%),
+      rgb(17 24 43 / 54%)
+    );
+
+  box-shadow:
+    0 18px 45px
+      rgb(0 0 0 / 14%),
+    inset 0 0 0 1px
+      rgb(34 211 197 / 3%);
+
+  transform:
+    translateY(-2px);
+}
+
+.relatedCoreTechnology
+.coreDot {
+  transform:
+    scale(1.22);
+
+  box-shadow:
+    0 0 15px
+    rgb(34 211 197 / 58%);
+}
+
+.relatedCoreTechnology:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgb(34 211 197 / 42%);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(34 211 197 / 11%),
+      rgb(108 99 255 / 5%),
+      rgb(17 24 43 / 58%)
+    );
+}
+
+
+/* =========================================================
+   RELATED MARK
+   ========================================================= */
+
+.relatedMark {
+  position: absolute;
+
+  top: 11px;
+  right: 11px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 11px
+    rgb(34 211 197 / 60%);
+}
+
+
+/* =========================================================
+   EXTENDED
+   ========================================================= */
+
+.extendedSection {
+  margin-top:
+    var(--space-14);
+
+  padding-top:
+    var(--space-8);
+
+  border-top:
+    1px solid
+    var(--border-soft);
+}
+
+.extendedHeader {
+  margin-bottom:
+    var(--space-6);
+}
+
+.extendedHeader p {
+  max-width: 500px;
+
+  margin-top:
+    var(--space-2);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-sm);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+.groups {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items:
+    flex-start;
+
+  gap:
+    var(--space-4);
+}
+
+.group {
+  flex:
+    1 1 280px;
+
+  align-self:
+    flex-start;
+
+  padding:
+    var(--space-5);
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    rgb(17 24 43 / 34%);
+
+  box-shadow:
+    0 0 0
+    rgb(0 0 0 / 0%);
+
+  transition:
+    border-color
+      380ms
+      var(--ease-standard),
+    background
+      380ms
+      var(--ease-standard),
+    box-shadow
+      420ms
+      var(--ease-standard);
+}
+
+
+/* =========================================================
+   RELATED GROUP
+   ========================================================= */
+
+.relatedGroup {
+  border-color:
+    rgb(34 211 197 / 15%);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgb(34 211 197 / 2.5%),
+      rgb(17 24 43 / 38%)
+    );
+
+  box-shadow:
+    0 18px 44px
+    rgb(0 0 0 / 9%);
+}
+
+.groupHeader {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap:
+    var(--space-4);
+
+  margin-bottom:
+    var(--space-4);
+}
+
+.groupHeader h3 {
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-sm);
+
+  font-weight:
+    var(--font-semibold);
+}
+
+.groupHeader > span {
+  display: grid;
+
+  place-items: center;
+
+  min-width: 26px;
+  height: 26px;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-full);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.65rem;
+
+  transition:
+    border-color
+      360ms
+      var(--ease-standard),
+    color
+      360ms
+      var(--ease-standard),
+    background
+      360ms
+      var(--ease-standard);
+}
+
+.relatedGroup
+.groupHeader > span {
+  border-color:
+    rgb(34 211 197 / 20%);
+
+  background:
+    rgb(34 211 197 / 4%);
+
+  color:
+    var(--accent-secondary);
+}
+
+
+/* =========================================================
+   TECHNOLOGY LIST
+   ========================================================= */
+
+.technologyList {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    var(--space-2);
+}
+
+.technology {
+  position: relative;
+
+  display:
+    inline-flex;
+
+  align-items: center;
+
+  padding:
+    0.5rem
+    0.68rem;
+
+  border:
+    1px solid
+    transparent;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(24 34 56 / 62%);
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    0.68rem;
+
+  transition:
+    transform
+      320ms
+      var(--ease-emphasized),
+    border-color
+      320ms
+      var(--ease-standard),
+    background
+      320ms
+      var(--ease-standard),
+    color
+      320ms
+      var(--ease-standard),
+    box-shadow
+      380ms
+      var(--ease-standard);
+}
+
+.technology:hover {
+  background:
+    rgb(34 211 197 / 7%);
+
+  color:
+    var(--text-primary);
+}
+
+
+/* =========================================================
+   RELATED EXTENDED TECHNOLOGY
+   ========================================================= */
+
+.relatedTechnology {
+  padding-left:
+    1.35rem;
+
+  border-color:
+    rgb(34 211 197 / 24%);
+
+  background:
+    rgb(34 211 197 / 8%);
+
+  color:
+    var(--text-primary);
+
+  box-shadow:
+    0 9px 24px
+    rgb(0 0 0 / 10%);
+}
+
+.relatedTechnology::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0.62rem;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 9px
+    rgb(34 211 197 / 58%);
+}
+
+.relatedTechnology:hover {
+  transform:
+    translateY(-1px);
+
+  border-color:
+    rgb(34 211 197 / 36%);
+
+  background:
+    rgb(34 211 197 / 11%);
+
+  color:
+    var(--text-primary);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (
+  min-width: 640px
+) {
+  .coreGrid {
+    grid-template-columns:
+      repeat(
+        4,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (
+  min-width: 900px
+) {
+  .headingGrid {
+    grid-template-columns:
+      minmax(0, 1.35fr)
+      minmax(280px, 0.65fr);
+
+    align-items: end;
+
+    gap:
+      var(--space-16);
+  }
+
+  .sectionDescription {
+    justify-self: end;
+  }
+
+  .subsectionHeader {
+    flex-direction: row;
+
+    align-items: flex-end;
+    justify-content:
+      space-between;
+
+    gap:
+      var(--space-8);
+  }
+
+  .projectConnection {
+    margin-bottom:
+      1px;
+  }
+
+  .coreGrid {
+    gap:
+      var(--space-4);
+  }
+
+  .extendedSection {
+    margin-top:
+      var(--space-16);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .projectConnection {
+    animation-duration:
+      1ms;
+  }
+
+  .coreTechnology,
+  .coreDot,
+  .group,
+  .groupHeader > span,
+  .technology {
+    transition-duration:
+      1ms;
+  }
+}

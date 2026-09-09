@@ -1,0 +1,1054 @@
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid
+    var(--border-soft);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgb(108 99 255 / 3%),
+      transparent 20%,
+      transparent 80%,
+      rgb(34 211 197 / 2%)
+    );
+}
+
+
+/* =========================================================
+   SECTION BASE GLOW
+   ========================================================= */
+
+.sectionGlow {
+  position: absolute;
+
+  top: 3%;
+  left: 50%;
+
+  width: 65rem;
+  height: 38rem;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    radial-gradient(
+      circle,
+      rgb(108 99 255 / 12%),
+      rgb(34 211 197 / 4%)
+        42%,
+      transparent 70%
+    );
+
+  transform:
+    translateX(-50%);
+
+  filter:
+    blur(45px);
+
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+
+  z-index:
+    var(--z-content);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.sectionHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-6);
+
+  margin-bottom:
+    var(--space-16);
+}
+
+.sectionLabel {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.sectionNumber {
+  color:
+    var(--accent-secondary);
+}
+
+.sectionLine {
+  width: 34px;
+  height: 1px;
+
+  background:
+    var(--border);
+}
+
+.headingGrid {
+  display: grid;
+
+  gap:
+    var(--space-6);
+}
+
+.sectionTitle {
+  max-width: 900px;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      2.7rem,
+      10vw,
+      5.7rem
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 0.98;
+
+  letter-spacing:
+    -0.06em;
+}
+
+.sectionDescription {
+  max-width: 500px;
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-lg);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   PROJECT LIST
+   ========================================================= */
+
+.projects {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.project {
+  /*
+   * Each project creates its own stacking context,
+   * allowing the environmental light to stay behind
+   * its content without leaking over neighbouring
+   * projects.
+   */
+  position: relative;
+
+  z-index: 0;
+
+  display: grid;
+
+  gap:
+    var(--space-8);
+
+  padding-block:
+    var(--space-14);
+
+  border-top:
+    1px solid
+    var(--border-soft);
+
+  isolation: isolate;
+
+  /*
+   * Default ambient positions.
+   * Mobile keeps the glow fairly centred because
+   * media and text are stacked vertically.
+   */
+  --ambient-x: 46%;
+  --ambient-y: 45%;
+
+  --ambient-secondary-x: 62%;
+  --ambient-secondary-y: 54%;
+
+  /*
+   * Default Midnight Prism tone.
+   * Individual project classes override these.
+   */
+  --ambient-primary:
+    108 99 255;
+
+  --ambient-secondary:
+    34 211 197;
+}
+
+.project:first-child {
+  padding-top: 0;
+
+  border-top: 0;
+}
+
+
+/* =========================================================
+   PROJECT AMBIENT FOCUS
+   ========================================================= */
+
+/*
+ * This layer belongs to the COMPLETE project row.
+ *
+ * It does not sit on the media card and does not
+ * change the UI colours.
+ */
+
+.projectAmbient {
+  position: absolute;
+
+  z-index: 0;
+
+  top: 2%;
+  right: -16%;
+  bottom: 2%;
+  left: -16%;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    scale(0.96);
+
+  transform-origin:
+    var(--ambient-x)
+    var(--ambient-y);
+
+  transition:
+    opacity
+      650ms
+      var(--ease-standard),
+    transform
+      850ms
+      var(--ease-emphasized);
+}
+
+
+/* =========================================================
+   PRIMARY AMBIENT LIGHT
+   ========================================================= */
+
+.ambientPrimary {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse
+        47%
+        47%
+        at
+        var(--ambient-x)
+        var(--ambient-y),
+
+      rgb(
+        var(--ambient-primary)
+        / 12%
+      )
+        0%,
+
+      rgb(
+        var(--ambient-primary)
+        / 7%
+      )
+        30%,
+
+      rgb(
+        var(--ambient-primary)
+        / 2%
+      )
+        57%,
+
+      transparent
+        76%
+    );
+
+  opacity: 0.95;
+
+  transform:
+    scale(0.9);
+
+  transition:
+    transform
+      900ms
+      var(--ease-emphasized),
+    opacity
+      700ms
+      var(--ease-standard);
+}
+
+
+/* =========================================================
+   SECONDARY AMBIENT LIGHT
+   ========================================================= */
+
+.ambientSecondary {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse
+        34%
+        36%
+        at
+        var(--ambient-secondary-x)
+        var(--ambient-secondary-y),
+
+      rgb(
+        var(--ambient-secondary)
+        / 9%
+      )
+        0%,
+
+      rgb(
+        var(--ambient-secondary)
+        / 4%
+      )
+        38%,
+
+      transparent
+        74%
+    );
+
+  opacity: 0.8;
+
+  transform:
+    scale(0.88);
+
+  transition:
+    transform
+      1000ms
+      var(--ease-emphasized),
+    opacity
+      700ms
+      var(--ease-standard);
+}
+
+
+/* =========================================================
+   ACTIVE PROJECT
+   ========================================================= */
+
+.ambientActive
+.projectAmbient {
+  opacity: 1;
+
+  transform:
+    scale(1);
+}
+
+.ambientActive
+.ambientPrimary {
+  opacity: 1;
+
+  transform:
+    scale(1);
+}
+
+.ambientActive
+.ambientSecondary {
+  opacity: 1;
+
+  transform:
+    scale(1);
+}
+
+
+/* =========================================================
+   PROJECT-SPECIFIC TONES
+   ========================================================= */
+
+/*
+ * HISOFT
+ * Indigo + cyan
+ */
+
+.ambientIndigoCyan {
+  --ambient-primary:
+    108 99 255;
+
+  --ambient-secondary:
+    34 211 197;
+}
+
+
+/*
+ * HisoftAnalytics
+ * Cyan dominant
+ */
+
+.ambientCyan {
+  --ambient-primary:
+    34 211 197;
+
+  --ambient-secondary:
+    108 99 255;
+}
+
+
+/*
+ * HiRewards
+ * Indigo + coral
+ */
+
+.ambientIndigoCoral {
+  --ambient-primary:
+    108 99 255;
+
+  --ambient-secondary:
+    255 122 104;
+}
+
+
+/*
+ * Check-App
+ * Cyan + indigo
+ */
+
+.ambientCyanIndigo {
+  --ambient-primary:
+    34 211 197;
+
+  --ambient-secondary:
+    108 99 255;
+}
+
+
+/*
+ * Portfolio
+ * Indigo dominant
+ */
+
+.ambientIndigo {
+  --ambient-primary:
+    108 99 255;
+
+  --ambient-secondary:
+    108 99 255;
+}
+
+
+/* =========================================================
+   CONTENT ABOVE AMBIENT
+   ========================================================= */
+
+.visualColumn,
+.projectContent {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   VISUAL COLUMN
+   ========================================================= */
+
+.visualColumn {
+  min-width: 0;
+}
+
+.visualHeader {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap:
+    var(--space-4);
+
+  margin-bottom:
+    var(--space-3);
+}
+
+.projectNumber {
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-wide);
+}
+
+.mediaHint {
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.62rem;
+
+  letter-spacing:
+    var(--tracking-wide);
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   PROJECT CONTENT
+   ========================================================= */
+
+.projectContent {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    center;
+}
+
+.projectMeta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.68rem;
+
+  letter-spacing:
+    var(--tracking-wide);
+
+  text-transform:
+    uppercase;
+}
+
+.featuredLabel {
+  color:
+    var(--accent-secondary);
+}
+
+.categories {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-5);
+}
+
+.categories span {
+  color:
+    var(--accent-warm);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.66rem;
+
+  letter-spacing:
+    var(--tracking-wide);
+
+  text-transform:
+    uppercase;
+}
+
+.categories span:not(
+    :last-child
+  )::after {
+  content: " /";
+
+  color:
+    var(--text-muted);
+}
+
+.projectTitle {
+  margin-top:
+    var(--space-3);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      2.4rem,
+      9vw,
+      4.5rem
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.055em;
+}
+
+.projectDescription {
+  max-width: 580px;
+
+  margin-top:
+    var(--space-5);
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-base);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   CONTRIBUTION
+   ========================================================= */
+
+.roleBlock {
+  max-width: 600px;
+
+  margin-top:
+    var(--space-7, 1.75rem);
+
+  padding-left:
+    var(--space-4);
+
+  border-left:
+    2px solid
+    var(--accent-secondary);
+}
+
+.roleBlock > span {
+  display: block;
+
+  margin-bottom:
+    var(--space-2);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.65rem;
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+.roleBlock p {
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-sm);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   TECHNOLOGIES
+   ========================================================= */
+
+.technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-6);
+}
+
+.technologies > span {
+  padding:
+    0.55rem
+    0.75rem;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(24 34 56 / 42%);
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    0.68rem;
+
+  transition:
+    border-color
+      var(--duration-normal)
+      var(--ease-standard),
+    background
+      var(--duration-normal)
+      var(--ease-standard);
+}
+
+
+/* =========================================================
+   SMALL ACTIVE DETAILS
+   ========================================================= */
+
+/*
+ * These changes are deliberately tiny.
+ * They help the entire project feel active
+ * without recolouring the interface.
+ */
+
+.ambientActive
+.technologies > span {
+  border-color:
+    rgb(
+      var(--ambient-primary)
+      / 14%
+    );
+
+  background:
+    rgb(
+      var(--ambient-primary)
+      / 3%
+    );
+}
+
+
+/* =========================================================
+   PROJECT LINK
+   ========================================================= */
+
+.projectLink {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-6);
+
+  padding-bottom: 3px;
+
+  border-bottom:
+    1px solid
+    rgb(34 211 197 / 25%);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-sm);
+
+  font-weight:
+    var(--font-semibold);
+
+  transition:
+    color
+      var(--duration-normal),
+    border-color
+      var(--duration-normal),
+    gap
+      var(--duration-normal)
+      var(--ease-emphasized);
+}
+
+.projectLink:hover {
+  gap:
+    var(--space-3);
+
+  border-color:
+    var(--accent-secondary);
+
+  color:
+    var(--accent-secondary);
+}
+
+
+/* =========================================================
+   LIVING PORTFOLIO
+   ========================================================= */
+
+.livingProject {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-6);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+}
+
+.livingProject > span {
+  width: 6px;
+  height: 6px;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 12px
+    rgb(34 211 197 / 55%);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (
+  min-width: 700px
+) {
+  .project {
+    padding-block:
+      var(--space-16);
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (
+  min-width: 900px
+) {
+  .sectionHeader {
+    margin-bottom:
+      var(--space-24);
+  }
+
+  .headingGrid {
+    grid-template-columns:
+      minmax(0, 1.35fr)
+      minmax(280px, 0.65fr);
+
+    align-items: end;
+
+    gap:
+      var(--space-16);
+  }
+
+  .sectionDescription {
+    justify-self: end;
+  }
+
+  .project {
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(360px, 0.85fr);
+
+    align-items: center;
+
+    gap:
+      var(--space-16);
+
+    min-height: 640px;
+
+    padding-block:
+      var(--space-20);
+  }
+
+  .project.reverse {
+    grid-template-columns:
+      minmax(360px, 0.85fr)
+      minmax(0, 1.15fr);
+  }
+
+  .reverse
+  .visualColumn {
+    order: 2;
+  }
+
+  .reverse
+  .projectContent {
+    order: 1;
+  }
+
+  .spotlight {
+    grid-template-columns:
+      minmax(0, 1.3fr)
+      minmax(350px, 0.7fr);
+
+    min-height: 700px;
+  }
+
+  .spotlight
+  .projectTitle {
+    font-size:
+      clamp(
+        3.8rem,
+        6vw,
+        5.5rem
+      );
+  }
+
+
+  /* =======================================================
+     DESKTOP AMBIENT ORIGIN
+     ======================================================= */
+
+  /*
+   * Normal projects:
+   * visual sits at the left,
+   * therefore the strongest environmental light
+   * begins around the left/middle area.
+   */
+
+  .ambientFromLeft {
+    --ambient-x: 30%;
+    --ambient-y: 48%;
+
+    --ambient-secondary-x:
+      57%;
+
+    --ambient-secondary-y:
+      52%;
+  }
+
+
+  /*
+   * Reversed projects:
+   * visual sits at the right.
+   */
+
+  .ambientFromRight {
+    --ambient-x: 70%;
+    --ambient-y: 48%;
+
+    --ambient-secondary-x:
+      43%;
+
+    --ambient-secondary-y:
+      52%;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (
+  min-width: 1200px
+) {
+  .project {
+    gap:
+      var(--space-24);
+  }
+
+  /*
+   * On wide screens the light can spread farther
+   * without becoming visually dominant.
+   */
+
+  .projectAmbient {
+    right: -20%;
+    left: -20%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .projectAmbient,
+  .ambientPrimary,
+  .ambientSecondary {
+    transition-duration:
+      1ms;
+  }
+}

@@ -1,0 +1,61 @@
+.page {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  padding: var(--space-6);
+
+  background:
+    radial-gradient(
+      circle at top left,
+      color-mix(
+        in srgb,
+        var(--accent) 8%,
+        transparent
+      ),
+      transparent 35%
+    ),
+    var(--surface);
+}
+
+.card {
+  width: min(100%, 420px);
+
+  display: grid;
+  gap: var(--space-8);
+
+  padding: var(--space-8);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+
+  background:
+    var(--surface-elevated);
+
+  box-shadow: var(--shadow-md);
+}
+
+.heading {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.eyebrow {
+  color: var(--accent);
+
+  font-size: var(--text-sm);
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  line-height: 1.15;
+}
+
+.description {
+  color: var(--text-secondary);
+}

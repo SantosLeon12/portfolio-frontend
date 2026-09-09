@@ -1,0 +1,530 @@
+.manager {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.heading h1 {
+  margin: 0;
+
+  color:
+    var(
+      --text-primary,
+      #111827
+    );
+
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.heading p {
+  margin: 0;
+
+  color:
+    var(
+      --text-secondary,
+      #64748b
+    );
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.totalBadge {
+  min-width: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 9px 12px;
+
+  border:
+    1px solid
+    var(
+      --border,
+      #e5e7eb
+    );
+
+  border-radius: 10px;
+
+  color:
+    var(
+      --text-secondary,
+      #475569
+    );
+
+  background:
+    var(
+      --surface,
+      #ffffff
+    );
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.panel {
+  overflow: hidden;
+
+  border:
+    1px solid
+    var(
+      --border,
+      #e5e7eb
+    );
+
+  border-radius:
+    var(
+      --radius-lg,
+      14px
+    );
+
+  background:
+    var(
+      --surface,
+      #ffffff
+    );
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 16px 18px;
+
+  border-bottom:
+    1px solid
+    var(
+      --border,
+      #e5e7eb
+    );
+}
+
+.search {
+  width: min(
+    420px,
+    100%
+  );
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 4px;
+
+  border:
+    1px solid
+    var(
+      --border,
+      #e5e7eb
+    );
+
+  border-radius: 9px;
+
+  background:
+    var(
+      --surface-elevated,
+      #f8fafc
+    );
+}
+
+.filterButton {
+  min-height: 32px;
+
+  padding: 0 10px;
+
+  border: 0;
+  border-radius: 7px;
+
+  color:
+    var(
+      --text-secondary,
+      #64748b
+    );
+
+  background:
+    transparent;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.filterButton:hover {
+  color:
+    var(
+      --text-primary,
+      #111827
+    );
+}
+
+.filterActive {
+  color:
+    var(
+      --text-primary,
+      #111827
+    );
+
+  background:
+    var(
+      --surface,
+      #ffffff
+    );
+
+  box-shadow:
+    0 1px 3px
+    rgba(
+      15,
+      23,
+      42,
+      0.08
+    );
+}
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageRow {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(160px, 0.8fr)
+    minmax(220px, 1.2fr)
+    minmax(100px, auto)
+    auto;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 16px 18px;
+
+  border: 0;
+  border-bottom:
+    1px solid
+    var(
+      --border,
+      #e5e7eb
+    );
+
+  color: inherit;
+
+  background:
+    transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease;
+}
+
+.messageRow:last-child {
+  border-bottom: 0;
+}
+
+.messageRow:hover {
+  background:
+    var(
+      --surface-elevated,
+      #f8fafc
+    );
+}
+
+.unread {
+  background:
+    rgba(
+      37,
+      99,
+      235,
+      0.035
+    );
+}
+
+.sender {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 8px;
+
+  border-radius: 999px;
+
+  background: #2563eb;
+}
+
+.readPlaceholder {
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 8px;
+}
+
+.senderText {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.senderText strong {
+  overflow: hidden;
+
+  color:
+    var(
+      --text-primary,
+      #111827
+    );
+
+  font-size: 13px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.senderText span {
+  overflow: hidden;
+
+  color:
+    var(
+      --text-secondary,
+      #64748b
+    );
+
+  font-size: 11px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.subject {
+  overflow: hidden;
+
+  color:
+    var(
+      --text-primary,
+      #1f2937
+    );
+
+  font-size: 13px;
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview {
+  overflow: hidden;
+
+  color:
+    var(
+      --text-secondary,
+      #64748b
+    );
+
+  font-size: 12px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.date {
+  color:
+    var(
+      --text-secondary,
+      #64748b
+    );
+
+  font-size: 11px;
+
+  white-space: nowrap;
+
+  text-align: right;
+}
+
+.statusColumn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.state {
+  padding: 42px 20px;
+
+  color:
+    var(
+      --text-secondary,
+      #64748b
+    );
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+.error {
+  margin: 18px;
+
+  padding: 16px;
+
+  border:
+    1px solid #fecaca;
+
+  border-radius: 10px;
+
+  color: #b91c1c;
+  background: #fef2f2;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (
+  max-width: 860px
+) {
+  .toolbar {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .filters {
+    overflow-x: auto;
+  }
+
+  .filterButton {
+    flex: 0 0 auto;
+  }
+
+  .messageRow {
+    grid-template-columns:
+      minmax(
+        0,
+        1fr
+      )
+      auto;
+
+    gap: 12px;
+  }
+
+  .content {
+    grid-column:
+      1 / -1;
+
+    padding-left: 19px;
+  }
+
+  .date {
+    grid-column: 1;
+
+    padding-left: 19px;
+
+    text-align: left;
+  }
+
+  .statusColumn {
+    grid-column: 2;
+    grid-row: 2;
+
+    align-self: end;
+  }
+}
+
+
+@media (
+  max-width: 560px
+) {
+  .manager {
+    gap: 18px;
+  }
+
+  .pageHeader {
+    flex-direction: column;
+  }
+
+  .heading h1 {
+    font-size: 22px;
+  }
+
+  .totalBadge {
+    min-width: 0;
+  }
+
+  .panel {
+    border-radius: 12px;
+  }
+
+  .messageRow {
+    padding: 15px;
+  }
+
+  .senderText strong {
+    white-space: normal;
+  }
+
+  .senderText span {
+    max-width: 220px;
+  }
+}

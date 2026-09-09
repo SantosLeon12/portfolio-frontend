@@ -1,0 +1,262 @@
+/* =========================================================
+   CONTEXT CURSOR
+   ========================================================= */
+
+.cursor {
+  position: fixed;
+
+  z-index: 2147483100;
+
+  top: 0;
+  left: 0;
+
+  width: max-content;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  will-change:
+    transform;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   BUBBLE
+   ========================================================= */
+
+.bubble {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 32px;
+
+  padding:
+    0.42rem
+    0.68rem;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgb(244 247 251 / 11%);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(17 24 43 / 84%);
+
+  color:
+    var(--text-primary);
+
+  box-shadow:
+    0 10px 28px
+      rgb(0 0 0 / 22%),
+    inset 0 0 0 1px
+      rgb(34 211 197 / 2%);
+
+  backdrop-filter:
+    blur(11px);
+
+  -webkit-backdrop-filter:
+    blur(11px);
+
+  opacity: 0;
+
+  transform:
+    translateY(4px)
+    scale(0.88);
+
+  transform-origin:
+    left top;
+
+  transition:
+    opacity
+      180ms
+      var(--ease-standard),
+    transform
+      220ms
+      var(--ease-emphasized),
+    border-color
+      220ms
+      var(--ease-standard),
+    background
+      220ms
+      var(--ease-standard);
+}
+
+
+/* =========================================================
+   VISIBLE
+   ========================================================= */
+
+.visible {
+  opacity: 1;
+}
+
+.visible
+.bubble {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap:
+    0.42rem;
+
+  animation:
+    contextContentEnter
+    180ms
+    var(--ease-emphasized)
+    both;
+}
+
+.label {
+  color:
+    var(--text-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.58rem;
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1;
+
+  letter-spacing:
+    0.11em;
+
+  text-transform:
+    uppercase;
+
+  white-space: nowrap;
+}
+
+.icon {
+  display: grid;
+
+  place-items: center;
+
+  color:
+    var(--accent-secondary);
+}
+
+
+/* =========================================================
+   DRAGGING
+   ========================================================= */
+
+.dragging
+.bubble {
+  border-color:
+    rgb(34 211 197 / 24%);
+
+  background:
+    rgb(17 24 43 / 92%);
+
+  transform:
+    translateY(0)
+    scale(0.96);
+}
+
+.dragging
+.label {
+  color:
+    var(--text-primary);
+}
+
+.dragging
+.icon {
+  color:
+    var(--accent-secondary);
+}
+
+
+/* =========================================================
+   CONTENT CHANGE
+   ========================================================= */
+
+@keyframes
+contextContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =========================================================
+   ONLY DESKTOP POINTERS
+   ========================================================= */
+
+@media (
+  max-width: 959px
+) {
+  .cursor {
+    display: none;
+  }
+}
+
+@media (
+  hover: none
+) {
+  .cursor {
+    display: none;
+  }
+}
+
+@media (
+  pointer: coarse
+) {
+  .cursor {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .bubble {
+    transition-duration:
+      1ms;
+  }
+
+  .content {
+    animation-duration:
+      1ms;
+  }
+}

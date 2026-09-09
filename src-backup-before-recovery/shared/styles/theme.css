@@ -1,0 +1,23 @@
+:root {
+  --background: #ffffff;
+  --surface: #f7f7f8;
+  --surface-elevated: #ffffff;
+
+  --text-primary: #171717;
+  --text-secondary: #616161;
+  --text-muted: #8a8a8a;
+
+  --border: #e5e5e5;
+
+  --accent: #3b5ccc;
+  --accent-hover: #304db0;
+
+  --danger: #c63737;
+  --success: #287a4b;
+
+  --shadow-sm:
+    0 1px 2px rgb(0 0 0 / 5%);
+
+  --shadow-md:
+    0 8px 24px rgb(0 0 0 / 8%);
+}

@@ -1,0 +1,1120 @@
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid
+    var(--border-soft);
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+   ========================================================= */
+
+.glow {
+  position: absolute;
+
+  top: -10rem;
+  left: 50%;
+
+  width: 55rem;
+  height: 40rem;
+
+  background:
+    radial-gradient(
+      circle,
+      rgb(108 99 255 / 12%),
+      rgb(34 211 197 / 5%)
+        40%,
+      transparent 70%
+    );
+
+  transform:
+    translateX(-50%);
+
+  filter:
+    blur(40px);
+
+  pointer-events: none;
+}
+
+
+.container {
+  position: relative;
+
+  z-index:
+    var(--z-content);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.sectionHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-6);
+
+  margin-bottom:
+    var(--space-16);
+}
+
+
+.sectionLabel {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-3);
+
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    var(--text-xs);
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+
+.sectionNumber {
+  color:
+    var(--accent-secondary);
+}
+
+
+.sectionLine {
+  width: 34px;
+  height: 1px;
+
+  background:
+    var(--border);
+}
+
+
+.sectionTitle {
+  max-width: 900px;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      2.7rem,
+      9vw,
+      5.2rem
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.055em;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.contactGrid {
+  display: grid;
+
+  gap:
+    var(--space-12);
+}
+
+
+.intro {
+  max-width: 560px;
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-lg);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   CONTACT LINKS
+   ========================================================= */
+
+.contactLinks {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top:
+    var(--space-8);
+
+  border-top:
+    1px solid
+    var(--border-soft);
+}
+
+
+.contactLink {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap:
+    var(--space-4);
+
+  padding-block:
+    var(--space-4);
+
+  border-bottom:
+    1px solid
+    var(--border-soft);
+
+  transition:
+    padding-left
+      var(--duration-normal)
+      var(--ease-emphasized),
+    color
+      var(--duration-normal);
+}
+
+
+.contactLink:hover {
+  padding-left:
+    var(--space-2);
+}
+
+
+.contactLink > div {
+  display: grid;
+
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(108 99 255 / 8%);
+
+  color:
+    var(--accent-secondary);
+}
+
+
+.contactLink span {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-1);
+}
+
+
+.contactLink small {
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+}
+
+
+.contactLink strong {
+  overflow: hidden;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-sm);
+
+  font-weight:
+    var(--font-medium);
+
+  text-overflow:
+    ellipsis;
+}
+
+
+.contactLink
+> svg {
+  color:
+    var(--text-muted);
+}
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.location {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-2);
+
+  margin-top:
+    var(--space-6);
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-sm);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-5);
+
+  padding: 0;
+
+  border: 0;
+
+  background:
+    transparent;
+
+  box-shadow: none;
+
+  opacity: 1;
+
+  transition:
+    opacity
+      var(--duration-normal)
+      var(--ease-standard);
+}
+
+
+.formSending {
+  opacity: 0.82;
+}
+
+
+/* =========================================================
+   FORM ROW
+   ========================================================= */
+
+.formRow {
+  display: grid;
+
+  gap:
+    var(--space-5);
+}
+
+
+/* =========================================================
+   FIELD
+   ========================================================= */
+
+.field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-2);
+}
+
+
+.field > span {
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-xs);
+
+  font-weight:
+    var(--font-medium);
+}
+
+
+.field input,
+.field textarea {
+  width: 100%;
+
+  border:
+    1px solid
+    var(--border-soft);
+
+  border-radius:
+    var(--radius-lg);
+
+  outline: none;
+
+  background:
+    rgb(17 24 43 / 48%);
+
+  color:
+    var(--text-primary);
+
+  transition:
+    border-color
+      var(--duration-normal),
+    background
+      var(--duration-normal),
+    box-shadow
+      var(--duration-normal),
+    opacity
+      var(--duration-normal);
+}
+
+
+.field input {
+  min-height: 52px;
+
+  padding-inline:
+    var(--space-4);
+}
+
+
+.field textarea {
+  resize: vertical;
+
+  min-height: 170px;
+
+  padding:
+    var(--space-4);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color:
+    var(--text-muted);
+}
+
+
+.field input:focus,
+.field textarea:focus {
+  border-color:
+    rgb(108 99 255 / 60%);
+
+  background:
+    rgb(17 24 43 / 68%);
+
+  box-shadow:
+    0 0 0 3px
+    rgb(108 99 255 / 8%);
+}
+
+
+/* =========================================================
+   DISABLED WHILE SENDING
+   ========================================================= */
+
+.field input:disabled,
+.field textarea:disabled {
+  cursor: wait;
+
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   FORM FOOTER
+   ========================================================= */
+
+.formFooter {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-4);
+}
+
+
+/* =========================================================
+   FORM MESSAGE
+   ========================================================= */
+
+.formMessage {
+  min-height: 20px;
+
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+
+  line-height:
+    var(--leading-relaxed);
+
+  transition:
+    color
+      var(--duration-normal)
+      var(--ease-standard);
+}
+
+
+.formMessageSending {
+  color:
+    var(--accent-secondary);
+}
+
+
+.formMessageError {
+  color:
+    rgb(255 122 104);
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.submitButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    var(--space-3);
+
+  min-height: 52px;
+
+  padding-inline:
+    var(--space-6);
+
+  border: 0;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--gradient-brand);
+
+  color: #ffffff;
+
+  font-weight:
+    var(--font-semibold);
+
+  box-shadow:
+    0 12px 35px
+    rgb(108 99 255 / 22%);
+
+  cursor: pointer;
+
+  transition:
+    transform
+      var(--duration-normal)
+      var(--ease-emphasized),
+    box-shadow
+      var(--duration-normal),
+    opacity
+      var(--duration-normal);
+}
+
+
+.submitButton:hover:not(
+    :disabled
+  ) {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 18px 44px
+    rgb(108 99 255 / 30%);
+}
+
+
+.submitButton:disabled {
+  cursor: wait;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   SUCCESS STATE
+   ========================================================= */
+
+.successState {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items:
+    flex-start;
+
+  gap:
+    var(--space-6);
+
+  width: 100%;
+
+  animation:
+    successEnter
+    620ms
+    var(--ease-emphasized)
+    both;
+}
+
+
+/* =========================================================
+   SUCCESS HEADER
+   ========================================================= */
+
+.successHeader {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-4);
+}
+
+
+.successIcon {
+  display: grid;
+
+  place-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  flex: 0 0 auto;
+
+  border:
+    1px solid
+    rgb(34 211 197 / 32%);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgb(34 211 197 / 12%),
+      rgb(108 99 255 / 7%)
+    );
+
+  color:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 28px
+    rgb(34 211 197 / 10%);
+
+  animation:
+    successIconEnter
+    700ms
+    var(--ease-emphasized)
+    both;
+}
+
+
+.successEyebrow {
+  display: block;
+
+  margin-bottom:
+    var(--space-2);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.66rem;
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+
+.successHeader h3 {
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(
+      var(--text-xl),
+      4vw,
+      var(--text-3xl)
+    );
+
+  font-weight:
+    var(--font-semibold);
+
+  line-height: 1.1;
+
+  letter-spacing:
+    -0.035em;
+}
+
+
+/* =========================================================
+   SUCCESS DESCRIPTION
+   ========================================================= */
+
+.successText {
+  max-width: 600px;
+
+  color:
+    var(--text-secondary);
+
+  font-size:
+    var(--text-base);
+
+  line-height:
+    var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   SUBMISSION RECEIPT
+   ========================================================= */
+
+.receipt {
+  width: 100%;
+
+  padding-block:
+    var(--space-5);
+
+  border-top:
+    1px solid
+    var(--border-soft);
+
+  border-bottom:
+    1px solid
+    var(--border-soft);
+}
+
+
+/* =========================================================
+   RECEIPT HEADER
+   ========================================================= */
+
+.receiptHeader {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap:
+    var(--space-4);
+
+  margin-bottom:
+    var(--space-5);
+}
+
+
+.receiptHeader
+> span {
+  color:
+    var(--text-muted);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.65rem;
+
+  letter-spacing:
+    var(--tracking-label);
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   RECEIPT STATUS
+   ========================================================= */
+
+.receiptStatus {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap:
+    var(--space-2);
+
+  color:
+    var(--accent-secondary);
+
+  font-family:
+    var(--font-mono);
+
+  font-size:
+    0.65rem;
+
+  letter-spacing:
+    var(--tracking-wide);
+
+  text-transform:
+    uppercase;
+}
+
+
+.receiptDot {
+  width: 6px;
+  height: 6px;
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    var(--accent-secondary);
+
+  box-shadow:
+    0 0 12px
+    rgb(34 211 197 / 48%);
+}
+
+
+/* =========================================================
+   RECEIPT DATA
+   ========================================================= */
+
+.receiptList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap:
+    var(--space-4);
+
+  margin: 0;
+}
+
+
+.receiptList > div {
+  display: grid;
+
+  grid-template-columns:
+    minmax(76px, 0.25fr)
+    minmax(0, 1fr);
+
+  align-items:
+    baseline;
+
+  gap:
+    var(--space-4);
+}
+
+
+.receiptList dt {
+  color:
+    var(--text-muted);
+
+  font-size:
+    var(--text-xs);
+}
+
+
+.receiptList dd {
+  min-width: 0;
+
+  margin: 0;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-sm);
+
+  font-weight:
+    var(--font-medium);
+
+  line-height:
+    var(--leading-relaxed);
+
+  overflow-wrap:
+    anywhere;
+}
+
+
+/* =========================================================
+   SEND ANOTHER
+   ========================================================= */
+
+.sendAnotherButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    var(--space-3);
+
+  min-height: 46px;
+
+  padding-inline:
+    var(--space-5);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    var(--radius-full);
+
+  background:
+    rgb(17 24 43 / 46%);
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    var(--text-sm);
+
+  font-weight:
+    var(--font-semibold);
+
+  cursor: pointer;
+
+  transition:
+    gap
+      var(--duration-normal)
+      var(--ease-emphasized),
+    transform
+      var(--duration-normal)
+      var(--ease-emphasized),
+    border-color
+      var(--duration-normal)
+      var(--ease-standard),
+    background
+      var(--duration-normal)
+      var(--ease-standard);
+}
+
+
+.sendAnotherButton:hover {
+  gap:
+    var(--space-4);
+
+  border-color:
+    rgb(34 211 197 / 30%);
+
+  background:
+    rgb(24 34 56 / 60%);
+
+  transform:
+    translateY(-1px);
+}
+
+
+.sendAnotherButton svg {
+  color:
+    var(--accent-secondary);
+}
+
+
+/* =========================================================
+   SUCCESS ANIMATION
+   ========================================================= */
+
+@keyframes
+successEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes
+successIconEnter {
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.65)
+      rotate(-8deg);
+  }
+
+  70% {
+    opacity: 1;
+
+    transform:
+      scale(1.06)
+      rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (
+  min-width: 720px
+) {
+  .formRow {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .formFooter {
+    flex-direction: row;
+
+    align-items: center;
+    justify-content:
+      space-between;
+  }
+
+
+  .successState {
+    max-width: 650px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (
+  min-width: 900px
+) {
+  .sectionHeader {
+    margin-bottom:
+      var(--space-20);
+  }
+
+
+  .contactGrid {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(420px, 1.2fr);
+
+    align-items: start;
+
+    gap:
+      var(--space-20);
+  }
+
+
+  .contactInfo {
+    position: sticky;
+
+    top:
+      calc(
+        var(--header-height) +
+        var(--space-8)
+      );
+  }
+
+
+  .form,
+  .successState {
+    padding-left:
+      var(--space-10);
+
+    border-left:
+      1px solid
+      var(--border-soft);
+  }
+
+
+  /*
+   * Keeps the confirmation visually balanced
+   * against the contact information column
+   * without turning it into a huge card.
+   */
+
+  .successState {
+    justify-content:
+      center;
+
+    min-height: 430px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .form,
+  .field input,
+  .field textarea,
+  .submitButton,
+  .sendAnotherButton {
+    transition-duration:
+      1ms;
+  }
+
+
+  .successState,
+  .successIcon {
+    animation-duration:
+      1ms;
+  }
+}

@@ -1,0 +1,61 @@
+.form {
+  display: grid;
+
+  gap:
+    var(--space-5);
+}
+
+.grid {
+  display: grid;
+
+  gap:
+    var(--space-5);
+}
+
+.fullWidth {
+  min-width: 0;
+}
+
+.switches {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    var(--space-4)
+    var(--space-6);
+}
+
+.actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    var(--space-3);
+
+  padding-top:
+    var(--space-4);
+
+  border-top:
+    1px solid
+      var(--border);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+  .fullWidth {
+    grid-column:
+      1 / -1;
+  }
+}
