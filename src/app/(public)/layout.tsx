@@ -6,6 +6,12 @@ import type {
   ReactNode,
 } from "react";
 
+import Script from "next/script";
+
+import {
+  serverEnv,
+} from "@/config/server-env";
+
 import {
   siteConfig,
 } from "@/config/site";
@@ -13,6 +19,21 @@ import {
 import {
   ContextCursor,
 } from "@/features/public-home/components/ContextCursor";
+
+
+/*
+ * We only need the backend origin:
+ *
+ * Production:
+ * https://portfolio-api-vynf.onrender.com
+ *
+ * Development:
+ * http://127.0.0.1:8000
+ */
+const BACKEND_WAKE_URL =
+  new URL(
+    serverEnv.apiUrl,
+  ).origin;
 
 
 export const metadata: Metadata =
@@ -209,6 +230,46 @@ export default function PublicLayout({
       {children}
 
       <ContextCursor />
+
+
+      {/*
+       * Production-only backend wake-up.
+       *
+       * The portfolio is already visible when
+       * this executes. The browser starts a
+       * lightweight GET against Render without
+       * waiting for its response.
+       *
+       * mode: "no-cors" means we do not need
+       * to inspect the response; simply reaching
+       * Render is enough to wake the service.
+       */}
+      {process.env.NODE_ENV ===
+      "production" ? (
+        <Script
+          id="wake-portfolio-backend"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                try {
+                  fetch(
+                    ${JSON.stringify(
+                      BACKEND_WAKE_URL,
+                    )},
+                    {
+                      method: "GET",
+                      mode: "no-cors",
+                      cache: "no-store",
+                      keepalive: true
+                    }
+                  ).catch(() => {});
+                } catch (_) {}
+              })();
+            `,
+          }}
+        />
+      ) : null}
     </div>
   );
 }

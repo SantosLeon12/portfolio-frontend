@@ -18,11 +18,26 @@ import type {
   PublicProjectWithMedia,
 } from "../types/publicHome.types";
 
+
 const API_BASE_URL =
   serverEnv.apiUrl.replace(
     /\/$/,
     "",
   );
+
+
+/*
+ * Public portfolio data changes infrequently.
+ *
+ * Vercel can keep the last successful version
+ * available and revalidate it every 24 hours.
+ */
+const PUBLIC_HOME_REVALIDATE_SECONDS =
+  86400;
+
+
+const PUBLIC_HOME_CACHE_TAG =
+  "portfolio-public";
 
 
 /* =========================================================
@@ -42,9 +57,17 @@ async function fetchPublicData<T>(
           "application/json",
       },
 
-      cache: "no-store",
+      next: {
+        revalidate:
+          PUBLIC_HOME_REVALIDATE_SECONDS,
+
+        tags: [
+          PUBLIC_HOME_CACHE_TAG,
+        ],
+      },
     },
   );
+
 
   if (!response.ok) {
     throw new Error(
@@ -55,6 +78,7 @@ async function fetchPublicData<T>(
       ].join(" "),
     );
   }
+
 
   return response.json() as Promise<T>;
 }
@@ -113,6 +137,7 @@ export async function getPublicProfileTechnologies() {
       "/public/profile/technologies",
     );
 
+
   return response.items;
 }
 
@@ -146,12 +171,14 @@ export async function getPublicProjects(): Promise<
       "/public/projects",
     );
 
+
   const sortedProjects =
     [...response.items].sort(
       (a, b) =>
         a.display_order -
         b.display_order,
     );
+
 
   return Promise.all(
     sortedProjects.map(
@@ -160,6 +187,7 @@ export async function getPublicProjects(): Promise<
           await getPublicProjectMedia(
             project.slug,
           );
+
 
         return {
           project,
@@ -189,6 +217,7 @@ export async function getPublicExperiences() {
       "/public/experiences",
     );
 
+
   return [...response.items]
     .filter(
       (item) =>
@@ -214,6 +243,7 @@ export async function getPublicEducations() {
       "/public/educations",
     );
 
+
   return [...response.items]
     .filter(
       (item) =>
@@ -238,6 +268,7 @@ export async function getPublicLanguages() {
     >(
       "/public/languages",
     );
+
 
   return [...response.items].sort(
     (a, b) =>
@@ -271,6 +302,7 @@ export async function getPublicHomeData(): Promise<PublicHomeData> {
     getPublicEducations(),
     getPublicLanguages(),
   ]);
+
 
   return {
     profile,
